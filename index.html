@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Node.js 20 App</title>
+</head>
+<body>
+  <h1>Welcome to My Node.js 20 App</h1>
+  <button id="fetchData">Get API Data</button>
+  <div id="result"></div>
+
+  <script>
+    document.getElementById('fetchData').addEventListener('click', async () => {
+      try {
+        const response = await fetch('/api/hello');
+        const data = await response.json();
+        document.getElementById('result').textContent = data.message;
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    });
+  </script>
+</body>
+</html>
